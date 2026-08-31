@@ -1,0 +1,785 @@
+{
+  "compressor": "llmint8",
+  "num_links": 3,
+  "policies": [
+    {
+      "llm_policy": "fp16_int8",
+      "outlier_precision": "fp16",
+      "regular_precision": "int8",
+      "llmint8_eta_to_codec_mapping": {
+        "_comment_reason": "LLMint8 optimization is carried out in feature-k / eta space, but real Flan-T5 execution requires feasible outlier configurations. This mapping converts solver eta to the nearest executable llmint8 configuration.",
+        "_comment_usage": "Used only when codec_name is llmint8 during true local inference. Ignored for topk.",
+        "entries": [
+          {
+            "outlier_values": [
+              0.01,
+              0.01,
+              0.01
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.2877,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              0.01,
+              0.01,
+              0.25
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.2877,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              0.01,
+              0.01,
+              0.5
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.2877,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              0.01,
+              0.01,
+              1.0
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.2877,
+              0.5314
+            ]
+          },
+          {
+            "outlier_values": [
+              0.01,
+              0.25,
+              0.01
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.4077,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              0.01,
+              0.25,
+              0.25
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.4077,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              0.01,
+              0.25,
+              0.5
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.4077,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              0.01,
+              0.25,
+              1.0
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.4077,
+              0.5314
+            ]
+          },
+          {
+            "outlier_values": [
+              0.01,
+              0.5,
+              0.01
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.5327,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              0.01,
+              0.5,
+              0.25
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.5327,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              0.01,
+              0.5,
+              0.5
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.5327,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              0.01,
+              0.5,
+              1.0
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.5327,
+              0.5314
+            ]
+          },
+          {
+            "outlier_values": [
+              0.01,
+              1.0,
+              0.01
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.5314,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              0.01,
+              1.0,
+              0.25
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.5314,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              0.01,
+              1.0,
+              0.5
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.5314,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              0.01,
+              1.0,
+              1.0
+            ],
+            "feature_k_values": [
+              0.2877,
+              0.5314,
+              0.5314
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              0.01,
+              0.01
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.2877,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              0.01,
+              0.25
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.2877,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              0.01,
+              0.5
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.2877,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              0.01,
+              1.0
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.2877,
+              0.5314
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              0.25,
+              0.01
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.4077,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              0.25,
+              0.25
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.4077,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              0.25,
+              0.5
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.4077,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              0.25,
+              1.0
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.4077,
+              0.5314
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              0.5,
+              0.01
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.5327,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              0.5,
+              0.25
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.5327,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              0.5,
+              0.5
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.5327,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              0.5,
+              1.0
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.5327,
+              0.5314
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              1.0,
+              0.01
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.5314,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              1.0,
+              0.25
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.5314,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              1.0,
+              0.5
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.5314,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              0.25,
+              1.0,
+              1.0
+            ],
+            "feature_k_values": [
+              0.4077,
+              0.5314,
+              0.5314
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              0.01,
+              0.01
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.2877,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              0.01,
+              0.25
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.2877,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              0.01,
+              0.5
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.2877,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              0.01,
+              1.0
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.2877,
+              0.5314
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              0.25,
+              0.01
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.4077,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              0.25,
+              0.25
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.4077,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              0.25,
+              0.5
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.4077,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              0.25,
+              1.0
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.4077,
+              0.5314
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              0.5,
+              0.01
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.5327,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              0.5,
+              0.25
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.5327,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              0.5,
+              0.5
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.5327,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              0.5,
+              1.0
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.5327,
+              0.5314
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              1.0,
+              0.01
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.5314,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              1.0,
+              0.25
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.5314,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              1.0,
+              0.5
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.5314,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              0.5,
+              1.0,
+              1.0
+            ],
+            "feature_k_values": [
+              0.5327,
+              0.5314,
+              0.5314
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              0.01,
+              0.01
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.2877,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              0.01,
+              0.25
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.2877,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              0.01,
+              0.5
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.2877,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              0.01,
+              1.0
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.2877,
+              0.5314
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              0.25,
+              0.01
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.4077,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              0.25,
+              0.25
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.4077,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              0.25,
+              0.5
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.4077,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              0.25,
+              1.0
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.4077,
+              0.5314
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              0.5,
+              0.01
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.5327,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              0.5,
+              0.25
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.5327,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              0.5,
+              0.5
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.5327,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              0.5,
+              1.0
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.5327,
+              0.5314
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              1.0,
+              0.01
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.5314,
+              0.2877
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              1.0,
+              0.25
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.5314,
+              0.4077
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              1.0,
+              0.5
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.5314,
+              0.5327
+            ]
+          },
+          {
+            "outlier_values": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "feature_k_values": [
+              0.5314,
+              0.5314,
+              0.5314
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
