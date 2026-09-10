@@ -2,7 +2,7 @@
 
 Code accompanying the paper **Communication-Aware Model Distributed Inference via Latent Representation Compression (MobiHoc 2026)**.
 
-**For the offline experiment code, please refer to our main GitHub repository.**
+**Please visit our [main repository](https://github.com/neu-spiral/communication-aware-inference) first. The offline experiment code is available there.**
 
 This repository contains the paper's **accuracy-function model fitting**, **Jetson
 online experiments**, and **performance trace collection** code. Fitting is a
@@ -12,7 +12,7 @@ collectors implement the Jetson evaluation setup.
 | Workflow | Entry point | Purpose |
 | --- | --- | --- |
 | **Inference** | `run.py` | Run **Jetson online tests**, using accuracy models and compression mappings produced by Fitting. |
-| **Trace** | `trace.py` | Measure the Jetson network environment and save performance traces, primarily for **offline tests** in the separate `Inference_Optimizer` project. |
+| **Trace** | `trace.py` | Measure the Jetson network environment and save performance traces, primarily for **offline tests** in our [main repository](https://github.com/neu-spiral/communication-aware-inference). |
 | **Fitting** | `fit.py` | Generate accuracy-function fitting models from measured data for online and offline inference experiments; usable on platforms beyond Jetson. |
 
 ```text
@@ -24,9 +24,11 @@ models/               Neural weights, fitted accuracy models, and mappings
 data/                 Evaluation datasets
 ```
 
-**Jetson environment (online experiments and trace collection).** The recorded
-platform is **NVIDIA Jetson Orin Nano**, **L4T r36.4.0**, and **Python 3.12**.
-[requirements.txt](requirements.txt) records its Python dependencies, including
+**Hardware and tested environment (online experiments and trace collection).**
+Online experiments and trace collection require multiple networked edge devices;
+the supplied workflows use **four nodes**. We have tested these workflows on
+**NVIDIA Jetson Orin Nano** devices running **L4T r36.4.0** and **Python 3.12**.
+[requirements.txt](requirements.txt) lists the dependencies for this tested setup, including
 PyTorch 2.7.0 and torchvision 0.22.0. Use Jetson-compatible PyTorch/torchvision
 builds and the same environment on all nodes. Run these commands from the
 repository root when preparing the Jetson experiments:
@@ -94,7 +96,7 @@ tests.** It records the conditions observed during a four-node Jetson execution:
 per-link transfer rates, packet sizes, transfer times, and end-to-end delays.
 It also records activation sizes, node computation times, and codec overhead.
 These measurements provide the network and execution profiles for offline
-experiments in the separate **`Inference_Optimizer`** project.
+experiments in our [main repository](https://github.com/neu-spiral/communication-aware-inference).
 
 Trace files are saved measurements for that offline workflow. The Jetson online
 inference workflow above measures its network during the actual run.
