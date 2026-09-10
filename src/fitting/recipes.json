@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "feature_columns": [
+    "k0",
+    "k1",
+    "k2"
+  ],
+  "target_column": "avg_accuracy",
+  "model_type": "poly3",
+  "data_sha256": {
+    "jetson_resnet_3tp_raw_accuracy.csv": "8b46e45d073473a9ba8c09e508d5f1ad76cdfb020cbc0602a4e77ec293059dd6",
+    "jetson_resnet_3tp_raw_accuracy_llmint8_fp16_int4.csv": "bf794be481d6b029ae25ef25cce2c6c1fc6efd6ef5eec706cb2a55595564db8a",
+    "raw_accuracy_resnet56_quantization.csv": "d88fcf2c143836b6c1482defbb5d4e7a6c8336911aadf466cabb80edbc68996a",
+    "raw_accuracy_resnet56_llmint8_fp16_int4.csv": "fd7cb404ab5ef748e4e01f433ba39d6cea66d6708c6e5ce55aa5b92f6c3c3480",
+    "raw_accuracy_resnet56_llmint8_fp16_int2.csv": "1dd8f72934d18807ced3dba65e981c1115a09b9142d798685b9e6ca5c1e408ea",
+    "raw_accuracy_resnet56_llmint8_int8int2.csv": "cbe5113a2bd701d5e5e3e1a43dfacd3573cdb72f26236dffbadecb97610b1b58",
+    "raw_accuracy_resnet56_llmint8_int8int4.csv": "693536d30f17d4cf6b113cd3c159343de32a7b81efb0a8d844988289b6b95bf5",
+    "raw_accuracy_flan_t5_sst2_3tp_topk.csv": "3e8cc6937d300a64bb964fa095815717685b5128ce06cd1421b7fdb1726ffcef",
+    "raw_accuracy_flan_t5_sst2_3tp_quantization.csv": "9bf70ad02797851677b6427f9a5935678740d4d4ef45963d37ba6d0a1bf4e4c8",
+    "raw_accuracy_flan_t5_sst2_3tp_llmint8_fp16_int8.csv": "5806d3705ee51f7de04e9d9619f0cf5b7ce95e8e402dd01f30bce354e822a5be"
+  },
+  "models": [
+    {
+      "task": "resnet",
+      "policy": "topk",
+      "csv": [
+        "jetson_resnet_3tp_raw_accuracy.csv"
+      ],
+      "rows": 216,
+      "model": "jetson_resnet_3tp_poly3_flex.pkl"
+    },
+    {
+      "task": "resnet",
+      "policy": "quantization",
+      "csv": [
+        "raw_accuracy_resnet56_quantization.csv"
+      ],
+      "rows": 125,
+      "model": "jetson_resnet_3tp_quantization_poly3_flex.pkl"
+    },
+    {
+      "task": "resnet",
+      "policy": "llmint8_fp16_int4",
+      "csv": [
+        "jetson_resnet_3tp_raw_accuracy.csv",
+        "jetson_resnet_3tp_raw_accuracy_llmint8_fp16_int4.csv",
+        "raw_accuracy_resnet56_llmint8_fp16_int4.csv"
+      ],
+      "rows": 179,
+      "model": "jetson_resnet_3tp_llmint8_fp16_int4_poly3_flex.pkl"
+    },
+    {
+      "task": "flan-t5",
+      "policy": "topk",
+      "csv": [
+        "raw_accuracy_flan_t5_sst2_3tp_topk.csv"
+      ],
+      "rows": 125,
+      "model": "flan_t5_sst2_3tp_topk_poly3_flex.pkl"
+    },
+    {
+      "task": "flan-t5",
+      "policy": "quantization",
+      "csv": [
+        "raw_accuracy_flan_t5_sst2_3tp_quantization.csv"
+      ],
+      "rows": 125,
+      "model": "flan_t5_sst2_3tp_quantization_poly3_flex.pkl"
+    },
+    {
+      "task": "flan-t5",
+      "policy": "llmint8_fp16_int8",
+      "csv": [
+        "raw_accuracy_flan_t5_sst2_3tp_llmint8_fp16_int8.csv"
+      ],
+      "rows": 64,
+      "model": "flan_t5_sst2_3tp_llmint8_fp16_int8_poly3_flex.pkl"
+    }
+  ],
+  "mappings": [
+    {
+      "task": "resnet",
+      "csv": [
+        "raw_accuracy_resnet56_llmint8_int8int2.csv",
+        "raw_accuracy_resnet56_llmint8_int8int4.csv",
+        "raw_accuracy_resnet56_llmint8_fp16_int2.csv",
+        "raw_accuracy_resnet56_llmint8_fp16_int4.csv"
+      ],
+      "base_csv": "raw_accuracy_resnet56.csv",
+      "filename": "raw_accuracy_resnet56_llmint8_eta_mapping.json"
+    },
+    {
+      "task": "flan-t5",
+      "csv": [
+        "raw_accuracy_flan_t5_sst2_3tp_llmint8_fp16_int8.csv"
+      ],
+      "base_csv": "raw_accuracy_flan_t5_sst2_3tp.csv",
+      "filename": "raw_accuracy_flan_t5_sst2_3tp_llmint8_eta_mapping.json"
+    }
+  ]
+}

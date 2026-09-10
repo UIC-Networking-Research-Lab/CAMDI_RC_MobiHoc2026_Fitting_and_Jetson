@@ -11,7 +11,7 @@ import requests
 from flask import Flask, Response, request
 from werkzeug.serving import make_server
 
-from http_transport import (
+from jetson_inference.common.http_transport import (
     DEFAULT_TX_BUCKET_CAPACITY_BYTES,
     FRAME_HEADER,
     FRAME_VERSION,

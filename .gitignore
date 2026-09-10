@@ -4,3 +4,7 @@ __pycache__/
 data/cifar10/
 outputs/
 *.log
+
+*.egg-info/
+build/
+dist/

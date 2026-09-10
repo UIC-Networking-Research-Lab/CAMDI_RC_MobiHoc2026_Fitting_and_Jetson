@@ -8,7 +8,7 @@ import pickle
 import sys
 
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+from jetson_inference.paths import PROJECT_ROOT
 MODEL_DIR = os.path.join(PROJECT_ROOT, "models")
 ESTIMATOR_DIR = os.path.join(MODEL_DIR, "accuracy_estimators")
 DATA_DIR = os.path.join(PROJECT_ROOT, "data")
