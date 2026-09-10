@@ -25,14 +25,15 @@ models/               Neural weights, fitted accuracy models, and mappings
 data/                 Evaluation datasets
 ```
 
-**Hardware and tested environment (online experiments and trace collection).**
-Online experiments and trace collection require multiple networked edge devices;
-the supplied workflows use **four nodes**. We have tested these workflows on
-**NVIDIA Jetson Orin Nano** devices running **L4T r36.4.0** and **Python 3.12**.
-[requirements.txt](requirements.txt) lists the dependencies for this tested setup, including
-PyTorch 2.7.0 and torchvision 0.22.0. Use Jetson-compatible PyTorch/torchvision
-builds and the same environment on all nodes. Run these commands from the
-repository root when preparing the Jetson experiments:
+Online inference and trace collection require multiple networked edge devices.
+The supplied workflows use **four nodes** and have been tested on **NVIDIA
+Jetson Orin Nano** devices running **L4T r36.4.0** and **Python 3.12**.
+
+To prepare this Jetson setup, install the dependencies listed in
+[requirements.txt](requirements.txt), including PyTorch 2.7.0 and torchvision
+0.22.0. Use Jetson-compatible PyTorch/torchvision builds and the same software
+environment on all nodes. Run the following commands from the repository root
+on each node:
 
 ```bash
 python -m pip install -r requirements.txt
