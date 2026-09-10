@@ -2,9 +2,14 @@
 
 Code accompanying the paper **Communication-Aware Model Distributed Inference via Latent Representation Compression (MobiHoc 2026)**.
 
-**Please visit our [main repository](https://github.com/neu-spiral/communication-aware-inference) first. The offline experiment code is available there.**
+> [!IMPORTANT]
+> **Please start with our main repository:**
+>
+> **https://github.com/neu-spiral/communication-aware-inference**
+>
+> It is the **primary code repository for this paper** and contains the code for the paper's **offline experiments**.
 
-This repository contains the paper's **accuracy-function model fitting**, **Jetson
+This companion repository contains the paper's **accuracy-function model fitting**, **Jetson
 online experiments**, and **performance trace collection** code. Fitting is a
 general-purpose, platform-independent workflow; the online experiments and trace
 collectors implement the Jetson evaluation setup.
