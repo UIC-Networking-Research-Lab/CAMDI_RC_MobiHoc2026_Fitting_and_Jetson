@@ -39,17 +39,15 @@ on each node:
 python -m pip install -r requirements.txt
 ```
 
-The datasets and model files needed for online inference and trace collection are:
+The repository already includes the SST-2 validation set
+(`data/sst2_validation.jsonl`), ResNet-56 weights (`models/resnet56-4bfd9763.th`),
+and fitted accuracy models and compression mappings (`models/accuracy_estimators/`).
+These files are ready to use.
 
-| Resource | Included in this repository? | Location or preparation |
-| --- | --- | --- |
-| SST-2 validation set | Yes | `data/sst2_validation.jsonl`; ready to use. |
-| CIFAR-10 test set | No | Download to `data/cifar10/` using the command below. |
-| ResNet-56 weights | Yes | `models/resnet56-4bfd9763.th`; ready to use. |
-| Flan-T5-base weights and tokenizer | No | Download to the Hugging Face cache using the same command below. |
-| Fitted accuracy models and compression mappings | Yes | `models/accuracy_estimators/`; ready to use. |
-
-Run these preparation commands from the repository root on each node:
+The CIFAR-10 test set and Flan-T5-base weights and tokenizer need to be downloaded.
+Run the following commands from the repository root on each node to check the
+included files and prepare these downloads. CIFAR-10 is saved to `data/cifar10/`,
+and Flan-T5-base is saved to the Hugging Face cache:
 
 ```bash
 # Check the files included in the repository.
