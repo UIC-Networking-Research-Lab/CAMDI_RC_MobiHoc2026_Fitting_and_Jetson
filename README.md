@@ -202,8 +202,9 @@ collection commands, measured grids, model filenames, and fitting recipes.
 
 ## Acknowledgments
 
-This work was supported by the National Science Foundation (NSF) under Grant
-No. 2112471 and the Army Research Laboratory (ARL) under Award No. W911NF2420172.
+This material is based upon work supported by the National Science Foundation
+under Award No. 2112471 and the U.S. Army Research Laboratory under Award
+No. W911NF2420172.
 
 ## License
 
