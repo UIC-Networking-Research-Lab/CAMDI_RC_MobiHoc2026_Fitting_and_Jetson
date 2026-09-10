@@ -42,7 +42,7 @@ python prepare.py assets
 python prepare.py assets --download
 ```
 
-**Fitting is not restricted to Jetson.** The workflow can be used in CPU or
+Fitting is not restricted to Jetson. The workflow can be used in CPU or
 GPU environments on workstations, servers, or Jetson devices. See the
 [Fitting section](#3-fitting-platform-independent-accuracy-function-models) for
 the separate fitting setup and commands.
