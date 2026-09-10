@@ -32,26 +32,41 @@ Jetson Orin Nano** devices running **L4T r36.4.0** and **Python 3.12**.
 To prepare this Jetson setup, install the dependencies listed in
 [requirements.txt](requirements.txt), including PyTorch 2.7.0 and torchvision
 0.22.0. Use Jetson-compatible PyTorch/torchvision builds and the same software
-environment on all nodes. Run the following commands from the repository root
+environment on all nodes. Run the following command from the repository root
 on each node:
 
 ```bash
 python -m pip install -r requirements.txt
+```
+
+The datasets and model files needed for online inference and trace collection are:
+
+| Resource | Included in this repository? | Location or preparation |
+| --- | --- | --- |
+| SST-2 validation set | Yes | `data/sst2_validation.jsonl`; ready to use. |
+| CIFAR-10 test set | No | Download to `data/cifar10/` using the command below. |
+| ResNet-56 weights | Yes | `models/resnet56-4bfd9763.th`; ready to use. |
+| Flan-T5-base weights and tokenizer | No | Download to the Hugging Face cache using the same command below. |
+| Fitted accuracy models and compression mappings | Yes | `models/accuracy_estimators/`; ready to use. |
+
+Run these preparation commands from the repository root on each node:
+
+```bash
+# Check the files included in the repository.
 python prepare.py assets
-# Download/cache CIFAR-10 and Flan-T5 weights and tokenizer on each node.
+# Download CIFAR-10 and cache the Flan-T5-base weights and tokenizer.
 python prepare.py assets --download
 ```
+
+For dataset descriptions and optional SST-2 regeneration instructions, see
+[data/README.md](data/README.md). For model descriptions and instructions for
+regenerating the fitted models and mappings, see
+[models/README.md](models/README.md).
 
 Fitting is not restricted to Jetson. The workflow can be used in CPU or
 GPU environments on workstations, servers, or Jetson devices. See the
 [Fitting section](#3-fitting-platform-independent-accuracy-function-models) for
 the separate fitting setup and commands.
-
-See the [models](models/README.md) and [data](data/README.md) READMEs for file
-descriptions and preparation instructions. The SST-2 validation set is already
-included in `data/sst2_validation.jsonl`; the data README explains how to
-regenerate it if needed. To list the available inference tasks, run
-`python run.py --help` from the repository root.
 
 ## 1. Inference: Jetson online tests
 
