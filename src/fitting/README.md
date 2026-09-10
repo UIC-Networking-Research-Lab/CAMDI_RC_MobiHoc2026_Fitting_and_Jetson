@@ -2,7 +2,7 @@
 
 This component generates accuracy-function fitting models for **Communication-Aware Model Distributed Inference via Latent Representation Compression (MobiHoc 2026)**.
 
-**The fitting code is general-purpose and is not limited to Jetson.** Fitting from measured CSVs runs on a regular CPU machine using NumPy, pandas, SciPy, and scikit-learn, with no dependency on L4T, CUDA, pretrained neural weights, or dataset downloads. The resulting accuracy functions can be used by online and offline inference optimizers.
+**The fitting workflow is platform-independent and can be used in CPU or GPU environments; it is not restricted to Jetson.** It can run on workstations, servers, or Jetson devices. Accuracy collection supports `--device cpu` and `--device cuda`; CSV-based regression uses the bundled NumPy/scikit-learn implementation. The resulting accuracy functions can be used by online and offline inference optimizers.
 
 The bundled ResNet and Flan-T5 workflows estimate accuracy from three activation-transfer ratios, `k0`, `k1`, and `k2`. The core `AccuracyEstimator` also accepts feature/accuracy arrays for other models, inferring the feature count from its input. The supplied task-specific CLI commands and recipes use the three-transfer-point schema. These models are fitted from measured accuracy; they do not train ResNet or Flan-T5 weights.
 
@@ -46,7 +46,7 @@ From the repository root:
 python fit.py bundled --output-dir outputs/fitted
 ```
 
-This CPU-only command uses the ten measurement CSVs in `data/` and produces six accuracy models, two mappings, training summaries, and `generated.json`. Models are written under `<output>/<task>/<policy>/`; mappings under `<output>/mappings/`. `recipes.json` records the ordered inputs, row counts, and CSV SHA-256 values.
+This command uses the ten measurement CSVs in `data/` and produces six accuracy models, two mappings, training summaries, and `generated.json`. Models are written under `<output>/<task>/<policy>/`; mappings under `<output>/mappings/`. `recipes.json` records the ordered inputs, row counts, and CSV SHA-256 values.
 
 | Model in `models/accuracy_estimators/` | Training measurements | Rows |
 | --- | --- | ---: |

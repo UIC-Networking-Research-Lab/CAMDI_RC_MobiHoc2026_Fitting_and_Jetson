@@ -38,9 +38,8 @@ python prepare.py assets
 python prepare.py assets --download
 ```
 
-**Fitting has no Jetson platform requirement.** Fitting from existing CSVs runs
-on a regular CPU machine using NumPy, pandas, SciPy, and scikit-learn. It does not
-require L4T, CUDA, neural-network checkpoints, or dataset downloads. See the
+**Fitting is not restricted to Jetson.** The workflow can be used in CPU or
+GPU environments on workstations, servers, or Jetson devices. See the
 [Fitting section](#3-fitting-platform-independent-accuracy-function-models) for
 the separate fitting setup and commands.
 
@@ -132,8 +131,8 @@ the devices and network conditions.
 models, and is not limited to Jetson.** It learns the relationship between
 compression settings and measured accuracy. The resulting function can be used
 by online or offline inference optimizers to evaluate compression choices.
-CSV-based fitting runs on CPU with standard Python numerical libraries and has
-no dependency on Jetson hardware, L4T, or CUDA.
+The fitting workflow is platform-independent and can be used in CPU or GPU
+environments; it is not restricted to Jetson.
 
 The bundled task workflows use three compression features `(k0, k1, k2)` and
 classification accuracy as the target. They cover ResNet-56/CIFAR-10 and
@@ -142,8 +141,8 @@ Flan-T5/SST-2 with Top-K, quantization, and LLM.int8. The core estimator in
 count is inferred from the input. Reusing it for another model requires that
 model's measured compression features and accuracy values.
 
-For fitting only, install the numerical dependencies. These versions match the
-recorded experiment environment and can be used on a regular CPU machine:
+For the CSV-fitting step, install the numerical dependencies. These versions
+match the recorded experiment environment:
 
 ```bash
 python -m pip install numpy==2.2.4 scipy==1.17.1 pandas==3.0.1 scikit-learn==1.8.0
@@ -176,11 +175,11 @@ python fit.py collect resnet --device cuda --checkpoint_path models/resnet56-4bf
 python fit.py resnet --csv outputs/calibration/resnet.csv --output-dir outputs/resnet-fit --model-types poly3
 ```
 
-Accuracy collection can run on a workstation or a Jetson; it runs the four
-partitions locally on one machine while
-sweeping compression settings. Flan-T5 uses `fit.py collect flan-t5` followed by
-`fit.py flan-t5`. Fitting itself runs on CPU and requires a new or empty output
-directory. The [fitting instructions](src/fitting/README.md) give both tasks'
+Accuracy collection runs the four partitions locally on one machine while
+sweeping compression settings, with `--device cpu` or `--device cuda`. The
+CSV-fitting step uses the bundled NumPy/scikit-learn regression implementation.
+Flan-T5 uses `fit.py collect flan-t5` followed by `fit.py flan-t5`. Fitting
+requires a new or empty output directory. The [fitting instructions](src/fitting/README.md) give both tasks'
 collection commands, measured grids, model filenames, and fitting recipes.
 
 ResNet architecture attribution is retained in

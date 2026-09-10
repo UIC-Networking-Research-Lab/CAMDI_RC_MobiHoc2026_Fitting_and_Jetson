@@ -12,8 +12,9 @@ used by the online optimizer.
 
 The six PKLs predict accuracy from three compression ratios. They are fitted
 with degree-three polynomial regression from the recorded calibration CSVs.
-The fitting code is platform-independent and can generate these accuracy-function
-models on a regular CPU machine for use in online or offline experiments.
+The fitting workflow is platform-independent and can be used in CPU or GPU
+environments beyond Jetson. Its accuracy-function models support online and
+offline inference experiments.
 The mappings are generated from measured ratios and outlier settings.
 
 Rebuild all six PKLs and both mappings from the repository root:
