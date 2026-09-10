@@ -141,8 +141,8 @@ Flan-T5/SST-2 with Top-K, quantization, and LLM.int8. The core estimator in
 count is inferred from the input. Reusing it for another model requires that
 model's measured compression features and accuracy values.
 
-For the CSV-fitting step, install the numerical dependencies. These versions
-match the recorded experiment environment:
+**Tested CSV-fitting environment:** Python 3.12, NumPy 2.2.4, SciPy 1.17.1,
+pandas 3.0.1, and scikit-learn 1.8.0. Install the dependencies with:
 
 ```bash
 python -m pip install numpy==2.2.4 scipy==1.17.1 pandas==3.0.1 scikit-learn==1.8.0
