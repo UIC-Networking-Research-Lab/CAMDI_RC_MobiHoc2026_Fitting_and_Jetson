@@ -12,7 +12,9 @@ From the repository root, download CIFAR-10 and cache the Flan-T5 model with:
 python prepare.py assets --download
 ```
 
-To regenerate the SST-2 JSONL from GLUE/SST-2:
+The SST-2 validation file is already included. To regenerate it, install
+`datasets` and export the SST-2 validation split from Hugging Face. The command
+below writes a new JSONL file under `outputs/`:
 
 ```bash
 python -m pip install datasets

@@ -47,10 +47,11 @@ GPU environments on workstations, servers, or Jetson devices. See the
 [Fitting section](#3-fitting-platform-independent-accuracy-function-models) for
 the separate fitting setup and commands.
 
-The [models](models/README.md) and [data](data/README.md) READMEs describe the
-required files and how to obtain them. Install `datasets` for SST-2 export or
-GLUE downloads, and `sentencepiece` if the tokenizer backend requires it.
-Append `--help` to any entry point or task command for its options.
+See the [models](models/README.md) and [data](data/README.md) READMEs for file
+descriptions and preparation instructions. The SST-2 validation set is already
+included in `data/sst2_validation.jsonl`; the data README explains how to
+regenerate it if needed. To list the available inference tasks, run
+`python run.py --help` from the repository root.
 
 ## 1. Inference: Jetson online tests
 
