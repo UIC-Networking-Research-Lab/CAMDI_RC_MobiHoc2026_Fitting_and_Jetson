@@ -200,6 +200,11 @@ Flan-T5 uses `fit.py collect flan-t5` followed by `fit.py flan-t5`. Fitting
 requires a new or empty output directory. The [fitting instructions](src/fitting/README.md) give both tasks'
 collection commands, measured grids, model filenames, and fitting recipes.
 
+## Acknowledgments
+
+This work was supported by the National Science Foundation (NSF) under Grant
+No. 2112471 and the Army Research Laboratory (ARL) under Award No. W911NF2420172.
+
 ## License
 
 The project code is licensed under the [MIT License](LICENSE).
