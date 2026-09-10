@@ -182,6 +182,10 @@ Flan-T5 uses `fit.py collect flan-t5` followed by `fit.py flan-t5`. Fitting
 requires a new or empty output directory. The [fitting instructions](src/fitting/README.md) give both tasks'
 collection commands, measured grids, model filenames, and fitting recipes.
 
+## License
+
+The project code is licensed under the [MIT License](LICENSE).
+
 ResNet architecture attribution is retained in
 `src/jetson_inference/common/resnet_arch.py`. Model and dataset terms follow their
 upstream releases.
